@@ -1,0 +1,6 @@
+outerCPP: "
+namespace felix { int run_felix(int argc, char** argv); }
+#include \"felix.cpp\"
+"
+
+innerCPP:"felix::run_felix(argc, argv);"
