@@ -1,6 +1,6 @@
 # Felix
 
-<img src="felix-mascot.png" width="50%" alt="Felix Mascot" />
+<img align="center" src="felix-mascot.png" width="50%" alt="Felix Mascot" />
 
 Felix is an append-only temporal fact engine.
 
