@@ -1,6 +1,6 @@
 # Felix
 
-<img src="felix-mascot.png" width="30%" alt="Felix Mascot" />
+<img src="felix-mascot.png" width="50%" alt="Felix Mascot" />
 
 Felix is an append-only temporal fact engine.
 
@@ -16,7 +16,7 @@ This repository contains:
 
 * The Felix C++ reference implementation
 * Native integration with Hachi
-* A picture of a cat n
+* Cat pictures
 
 ***
 
@@ -36,7 +36,7 @@ Facts never mutate.
 History never disappears.
 State can always be rebuilt.
 
-Also, Felix is named after a long deceased large black tabby cat named "Felix", who grew to be 35 pounds. A chonk of the most legendary sort.
+Also, Felix is named after a long since deceased, large gray tabby cat named "Felix", who grew to be 40 pounds. A chonk of the most legendary variety.
 
 ***
 
@@ -83,7 +83,7 @@ Rebuilding state from facts must always produce identical results.
 
 # Hachi Integration
 
-<img src="felix+hachi.png" width="30%" alt="Felix Mascot" />
+<img src="felix+hachi.png" width="50%" alt="Felix Mascot" />
 
 Felix integrates directly with Hachi.
 
@@ -471,5 +471,6 @@ Time is respected.
 
 That is Felix.
 
-Also, this is Felix:
-<img src="felix+family.jpeg" width="40%" alt="Felix Mascot" />
+Also, this is Felix, the original one:
+
+<img src="felix+family.jpeg" width="60%" alt="Felix Mascot" />
