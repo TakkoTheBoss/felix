@@ -199,11 +199,11 @@ Rebuilding state from facts must always produce identical results.
 
 ***
 
-# Hachi Integration
+# [Hachi](https://hdev.run/) Integration
 
 <img src="felix+hachi.png" width="50%" alt="Felix Mascot" />
 
-Felix integrates directly with Hachi.
+Felix integrates directly with [Hachi](https://hdev.run/).
 
 The Hachi binding exposes Felix operations in a natural, type-safe way, allowing:
 
@@ -592,4 +592,3 @@ That is Felix.
 Also, this is Felix, the original one:
 
 <img src="felix+family.jpeg" width="60%" alt="Felix Mascot" />
-
