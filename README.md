@@ -42,19 +42,137 @@ Also, Felix is named after a long since deceased, large gray tabby cat named "Fe
 
 # Why Felix Exists
 
-Most systems overwrite data or do weird things.
+Most databases treat state as something you update.
 
-Felix records truth over time.
+You insert a row.
+You update a column.
+You delete a record.
 
-This gives you:
+Over time, the database reflects the latest version of truth.
 
-- Deterministic state reconstruction
- - Out-of-order ingestion safety
-- Stable canonical identity
-- Value-level deduplication
-- Immutable audit history
+If you want history, you bolt it on:
 
-Felix is ideal when correctness over time matters more than convenience.
+* Audit tables
+* Change tracking
+* Version columns
+* Triggers
+* Soft deletes
+
+History becomes an accessory to mutation.
+
+Felix starts from a different premise.
+
+It never updates a field.
+It never overwrites a value.
+It never deletes a fact.
+
+Instead of mutating state, Felix appends facts.
+
+If a value changes from 6 to 7, Felix records:
+
+```
+value = 6 @ t1
+value = 7 @ t2
+```
+
+Current state is simply:
+
+> the most recent fact per field
+
+That sounds simple.
+But it changes the nature of the system.
+
+There is no ambiguity about what happened.
+There is no silent overwrite.
+There is no question about reconstruction.
+
+If something looks wrong, you replay history.
+If ingestion arrives out of order, state remains correct.
+If two systems ingest the same facts, they compute the same result.
+
+---
+
+## Not “Just” Append-Only
+
+It is easy to look at this and say:
+
+“Oh, it’s just an append-only table.”
+“Oh, it’s just event sourcing.”
+“Oh, it’s just adding timestamps.”
+
+Felix is related to those ideas, but it goes further.
+
+Felix enforces canonical identity.
+
+Every value is normalized before storage.
+Every canonical value has a deterministic identity hash.
+Identical semantic values collapse to the same identity across the entire system.
+
+State derivation is not convention.
+It is rule-based and deterministic.
+
+Given identical facts, conforming implementations must produce identical state.
+
+Out-of-order ingestion cannot corrupt derived state.
+Rebuilding from scratch must produce the same result as incremental updates.
+
+This is not “data with timestamps.”
+
+It is a deterministic temporal fact model.
+
+The timestamp is not metadata.
+It is the ordering rule that defines truth.
+
+---
+
+## Why This Matters
+
+In many systems, subtle errors hide in mutation.
+
+A value flips briefly.
+A threshold oscillates.
+A parameter changes and changes back.
+
+If you only store the latest state, the pattern disappears.
+
+Felix preserves every assertion in order.
+
+That means you can:
+
+* Reconstruct any point in time
+* Analyze behavioral drift
+* Detect instability across windows
+* Prove what was known and when
+* Rebuild state without trusting cached projections
+
+You are not guessing from snapshots.
+You are evaluating truth over time.
+
+---
+
+## When Felix Makes Sense
+
+Felix is ideal when:
+
+* Correctness over time matters
+* Mutation must not erase history
+* Determinism is required
+* Reconstruction must be provable
+* Auditability is a first-class concern
+
+It favors:
+
+Determinism over convenience
+History over overwrite
+Identity over representation
+Explicit facts over implicit state
+
+Felix does not try to be everything.
+
+It does one thing carefully:
+
+It preserves truth over time without mutation.
+
 
 ***
 
@@ -474,3 +592,4 @@ That is Felix.
 Also, this is Felix, the original one:
 
 <img src="felix+family.jpeg" width="60%" alt="Felix Mascot" />
+
