@@ -534,7 +534,7 @@ Felix is well suited for:
 
 # Specification
 
-Felix follows the Felix Open Specification v0.3.
+Felix follows the [Felix open specification](https://doi.org/10.5281/zenodo.18666474).
 
 The specification defines:
 
@@ -592,3 +592,4 @@ That is Felix.
 Also, this is Felix, the original one:
 
 <img src="felix+family.jpeg" width="60%" alt="Felix Mascot" />
+
